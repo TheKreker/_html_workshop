@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>GET Method</title>
+    <title>GET and POST Method</title>
 </head>
+
 <body>
-    <h1>GET Method</h1>
-    
+    <h1>GET and POST Method</h1>
+
     <form action="process_student_data.php" method="get">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <br><br>
-        
+
         <label for="surname">Surname:</label>
         <input type="text" id="surname" name="surname" required>
         <br><br>
@@ -26,8 +28,54 @@
         <label for="faculty">Faculty:</label>
         <input type="text" id="faculty" name="faculty" required>
         <br><br>
-        
+
         <input type="submit" value="Submit">
     </form>
+
+    <br><br>
+
+    <a href="https://e.tsi.lv/user/profile.php?id=11541&name=Antons&surname=Kornejevs&age=23&faculty=IZF" >GET</a>
+        <button onclick="addStudentData()">POST</button>
+        <form>
+            <label for="fname">Name:</label>
+            <input type="text" id="fname"><br><br>
+
+            <label for="fname">Surname:</label>
+            <input type="text" id="fsurname"><br><br>
+
+            <label for="fname">ID:</label>
+            <input type="text" id="fid"><br><br>
+
+            <label for="fname">Age:</label>
+            <input type="text" id="fage"><br><br>
+
+            <label for="fname">Faculty:</label>
+            <input type="text" id="ffaculty"><br><br>
+
+            <input type="submit" formaction="https://e.tsi.lv/user/profile.php" value="Submit">
+        </form>
 </body>
+<script>
+    function addStudentData() {
+        const url = `https://e.tsi.lv/user/profile.php`;
+        let obj = {
+            name: 'Antons',
+            surname: 'Kornejevs',
+            age: 23,
+            id: 11541,
+            faculty: 'IZF'
+        }
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(obj)
+        })
+            .then(response => response.text())
+            .then((text) => {
+            })
+            .catch(err => console.error(err));
+    }
+</script>
 </html>
