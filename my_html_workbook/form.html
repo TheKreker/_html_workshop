@@ -26,6 +26,95 @@
                 .catch(err => console.error(err));
         }
     </script>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            document.getElementById("location").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+        }
+    </script>
+</head>
+<body>
+    <h1>GET and POST Method</h1>
+
+    <form action="process_student_data.php" method="get">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required>
+        <br><br>
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" required>
+        <br><br>
+
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+        <br><br>
+
+        <label for="faculty">Faculty:</label>
+        <input type="text" id="faculty" name="faculty" required>
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <br><br>
+
+    <a href="https://e.tsi.lv/user/profile.php?id=11541&name=Antons&surname=Kornejevs&age=23&faculty=IZF" >GET</a>
+        <button onclick="addStudentData()" <!DOCTYPE html>
+<html>
+
+<head>
+    <title>GET and POST Method</title>
+    <script>
+        function addStudentData() {
+            const url = `https://e.tsi.lv/user/profile.php`;
+            let obj = {
+                name: 'Antons',
+                surname: 'Kornejevs',
+                age: 23,
+                id: 11541,
+                faculty: 'IZF'
+            }
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj)
+            })
+                .then(response => response.text())
+                .then((text) => {
+                })
+                .catch(err => console.error(err));
+        }
+    </script>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            document.getElementById("location").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+        }
+    </script>
 </head>
 <body>
     <h1>GET and POST Method</h1>
@@ -58,6 +147,26 @@
 
     <a href="https://e.tsi.lv/user/profile.php?id=11541&name=Antons&surname=Kornejevs&age=23&faculty=IZF" >GET</a>
         <button onclick="addStudentData()">POST</button>
+        <form>
+            <label for="fname">Name:</label>
+            <input type="text" id="fname"><br><br>
+
+            <label for="fname">Surname:</label>
+            <input type="text" id="fsurname"><br><br>
+
+            <label for="fname">ID:</label>
+            <input type="text" id="fid"><br><br>
+
+            <label for="fname">Age:</label>
+            <input type="text" id="fage"><br><br>
+
+            <label for="fname">Faculty:</label>
+            <input type="text" id="ffaculty"><br><br>
+
+            <input type="submit" formaction="https://e.tsi.lv/user/profile.php" value="Submit">
+        </form>
+</body>
+</html>>POST</button>
         <form>
             <label for="fname">Name:</label>
             <input type="text" id="fname"><br><br>
