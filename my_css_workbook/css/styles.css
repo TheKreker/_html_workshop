@@ -1,0 +1,21 @@
+body {
+    background-color: #FFF8DC;
+}
+.bigger_paragraph {
+    font-size: 34px;
+}
+.centered {
+    text-align: left;
+}
+h1 {
+    color: #8B0000;
+    font-family: 'Times New Roman', sans-serif;
+}
+h2 {
+    color: #8B0000;
+    font-family: 'Times New Roman', sans-serif;
+}
+p, li {
+    font-family: 'Times New Roman', sans-serif;
+    color: #2F4F4F;
+}
